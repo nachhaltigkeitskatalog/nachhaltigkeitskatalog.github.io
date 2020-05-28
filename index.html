@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="de" prefix="og: http://ogp.me/ns#">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta property="og:site_name" content="ETH Projekt" />
+	<meta property="og:title" content="Nachhaltigkeitskatalog" />
+	<meta property="og:description" content="Dieser Nachhaltigkeitskatalog dient Veranstaltenden zur Selbstbeurteilung Ihrer Veranstaltung. Sie können anhand der Schieberegler verstellen, welche Auswirkungen Sie von Ihrer Veranstaltung auf einen Indikator erwarten..." />
+	<meta property="og:locale" content="de_DE" />
+	<meta property="og:rich_attachment" content="true" />
+	<meta name="author" content="Umsetzung durch Luca Bosin - bosin.ch">
+	<meta name="description" content="Dieser Nachhaltigkeitskatalog dient Veranstaltenden zur Selbstbeurteilung Ihrer Veranstaltung. Sie können anhand der Schieberegler verstellen, welche Auswirkungen Sie von Ihrer Veranstaltung auf einen Indikator erwarten..." />
+	<title>Nachhaltigkeitskatalog</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		:root {
+			--color0: 231,76,60;
+			--color50: 241,196,15;
+			--color100: 46,204,113;
+			--gradient: linear-gradient(90deg, rgb(var(--color0)) 0%, rgb(var(--color50)) 50%, rgb(var(--color100)) 100%);
+		}
+		body {
+			font-family: 'Open Sans', sans-serif;
+			hyphens: auto;
+		}
+
+		.container {
+			max-width: 64.875rem;
+			margin: 0 auto;
+			padding: 2.5em 1.5em 3.5em 1.5em;
+		}
+		h1 {
+			font-size: 2em;
+			line-height: 1.17;
+			margin-bottom: .75em;
+		}
+		h2 {
+			font-size: 1.6em;
+			font-weight: normal;
+			margin-bottom: .5em;
+		}
+		h3 {
+			font-size: 1.25em;
+			font-weight: bold;
+			margin-bottom: .25em;
+		}
+		.introduction p {
+			line-height: 1.5em;
+			margin-bottom: 1em;
+		}
+		.criteria-list {
+			list-style: none;
+		}
+		.introduction,
+		.criteria-list,
+		.criterion:not(:last-child) {
+			margin-bottom: 2em;
+		}
+		.criterion > p {
+			margin-bottom: .25em;
+		}
+		.slider {
+			-webkit-appearance: none;
+			width: 100%;
+			background: transparent;
+			margin-bottom: .5em;
+
+			--thiscolor: var(--color50);
+		}
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			height: 1.75em;
+			width: 1.75em;
+			background: #FFFFFF;
+			border-radius: 50%;
+			cursor: pointer;
+			margin-top: -.625em;
+			box-shadow: 0 .25em .75em 0 rgba(0,0,0,0.1);
+			border: .25em solid rgb(var(--thiscolor));
+		}
+		.slider:focus {
+			outline: none;
+		}
+		.slider::-ms-track {
+			width: 100%;
+			height: .5em;
+			cursor: pointer;
+			background: transparent;
+			border-color: transparent;
+			color: transparent;
+		}
+		.slider::-webkit-slider-runnable-track {
+			width: 100%;
+			height: .5em;
+			cursor: pointer;
+			background: var(--gradient);
+			border-radius: .25em;
+		}
+		.slider::-moz-range-track {
+			width: 100%;
+			height: .5em;
+			cursor: pointer;
+			background: var(--gradient);
+			border-radius: .25em;
+		}
+		.slider::-ms-fill-lower, .slider::-ms-fill-upper {
+			background: var(--gradient);
+			border-radius: .25em;
+		}
+		.slider-inverse {
+			transform: rotate(180deg); /* Couldn't get any simpler than that */
+			border-radius: .25em;
+		}
+		.slider-inverse::-webkit-slider-thumb {
+			box-shadow: 0 -.25em .75em 0 rgba(0,0,0,0.1);
+		}
+		.slider-label {
+			opacity: 0.7;
+		}
+		.slider-label-right {
+			float: right;
+		}
+		.average-color {
+			display: inline-block;
+			border-radius: 1rem;
+			background-color: rgb(var(--color50));
+			margin-left: .5rem;
+			position: relative;
+			line-height: 1.5rem;
+			font-size: 1rem;
+			padding: .25rem 1rem;
+			color: #ffffff;
+			top: -.25rem;
+		}
+		.average-color-area {
+			width: 100%;
+			padding: 1.5em 1.25em;
+			border-radius: .25em;
+			background-color: rgb(var(--color50));
+			display: grid;
+			justify-content: center;
+			align-content: center;
+			color: #ffffff;
+
+		}
+		@media only screen and (max-width: 768px) {
+		  .average-color {
+				display: block;
+				margin-left: 0;
+				margin-top: .5em;
+			}
+		}
+	</style>
+</head>
+<body>
+	<section class="container">
+		<section class="introduction">
+			<h1>Nachhaltigkeits&shy;katalog</h1>
+			<p>Dieser Nachhaltigkeitskatalog dient Veranstaltenden zur Selbstbeurteilung Ihrer Veranstaltung. Sie können anhand der Schieberegler verstellen, welche Auswirkungen Sie von Ihrer Veranstaltung auf einen Indikator erwarten. Rot gilt dabei als stark negative Auswirkung und Grün als stark positive. Am Anfang jedes Nachhaltigkeitsbereiches ist die durchschnittliche Auswirkung Ihrer Veranstaltung auf den Bereich erkennbar. Am Ende sieht man die gesamte nachhaltige Auswirkung Ihrer Veranstaltung.</p>
+			<p>Die Indikatoren sollen Ihnen Ideen liefern, in welchen Bereichen Sie Massnahmen treffen könnten, um Ihre Veranstaltung nachhaltiger zu gestalten.</p>
+		</section>
+		<section id="total-section">
+			<h2>Gesamtresultat:</h2>
+			<div class="average-color-area" id="total-color"></div>
+		</section>
+	</section>
+	<script>
+		'use strict';
+		// Set up variables
+		let minVal = 1, maxVal = 25,
+
+		range = maxVal - minVal + 1, halfrange = Math.ceil(range / 2),
+
+		textPositive = 'Positive Auswirkungen',
+		textNegative = 'Negative Auswirkungen',
+		textLow = 'tief',
+		textHigh = 'hoch',
+		textLegend = 'Auswirkungen auf',
+		textTotal = 'die Nachhaltigkeit',
+		textsLegend = {'0': 'stark negativ', '25': 'schwach negativ', '45': 'keine', '55': 'schwach positiv', '75': 'stark positiv'};
+
+		// Colors can be changed in CSS (style)
+		let color0, color50, color100, container, totalSection, sliders = [];
+		let criteria = {
+			soc: {
+				name: 'Gesellschaft',
+				pronoun: 'die',
+				pos: [
+					'Verbessert die Veranstaltung das Angebot an Sportaktivitäten für Einheimische und Touristen?',
+					'Verbessert die Veranstaltung das Angebot an Freizeitaktivitäten für Einheimische und Touristen?',
+					'Sind die Anlagen rollstuhlgängig? - rollstuhlgängige WC-Anlagen, Vermeidung von Stufen, rollstuhlgängie Aufzüge, breite Wege, geeigntete Sitz- und Sellplätze für Rollstuhlgänger*innen',
+					'Sind die Anlagen gut nutzbar für Gehbehinderte Personen? - gleitsichere Böden, kurze Wege, Sitzmöglichkeiten, Handläufe...',
+					'Wie gut sind die Angestellten/Beschäftigten versichert bezüglich Gesundheits und Sicherheitsrisiko?',
+					'Gibt es Alterskontrollen  für die Alkoholausgabe?',
+					'Existiert eine Notgasse für Feuerwehr und Sanitätswagen?',
+					'Sind Notausgänge vorhanden?',
+					'Wird bei der Anmeldung und Formularen die geschlechtergerechte Sprache verwendet wird?'
+				],
+				neg: [
+					'Wie stark wird die Lebensqualität der Bevölkerung beeinträchtigt?'
+				]
+			},
+			eco: {
+				name: 'Wirtschaft',
+				pronoun: 'die',
+				pos: [
+					'Wie stark wird das Image der Region durch die Veranstaltung verbessert?',
+					'Wie stark steigert die Veranstaltung die Bekanntheit der Region?',
+					'Wie stark wird die Einkommenssituation im tertiären Sektor (Dienstleistungen) verbessert?',
+					'Können durch die Veranstaltung neue Arbeitspätze geschaffen werden?',
+					'Werden durch die Veranstaltung die Anzahl Übernachtungen in der Region erhöht? ',
+					'Welcher Anteil der Teilnehmenden und Zuschauenden logieren in der Region?',
+					'Führt die Veranstaltung zu höheren Einnahmen im Gastrobereich in der Region?',
+					'Führt die Veranstaltung zu sonstigen höheren Einnahmen in der Region?',
+					'Wie hoch ist der Anteil des Veranstaltungsbudgets aus der Region?',
+					'Welcher Anteil des Budgets wird für Marketing verwendet?'
+				],
+				neg: [
+					'Wie stark steigen die Preise in der Region aufgrund der Veranstaltung?'
+				]
+			},
+			env: {
+				name: 'Umwelt',
+				pronoun: 'die',
+				pos: [
+					'Werden bei der An- und Abreise zum Event Vergünstigungen für den ÖV für die Teilnehmenden und Zuschauenden angeboten?',
+					'Ist der Veranstaltungsort bequem mit öffentlichen Verkehrsmitteln erreichbar und kann das Prinzip der „kurzen Wege“ verwirklicht werden?',
+					'Werden für Parkpätze klare Bereiche geplant?',
+					'Werden bei der Veranstaltung Massnahmen durchgeführt, die zur Sensibilisierung der Teilnehmenden und Zuschauenden für Umweltanliegen führen?',
+					'Wie gross ist der Anteil von Mehrwegbesteck und -geschirr in ihrem Angebot?',
+					'Wird bei der temporären Infrastruktur auf Wiederverwendbarkeit geachtet?',
+					'Gibt es auf dem Gelände Möglichkeiten Abfall zu trennen?',
+					'Werden die Naturschutzzonen respektiert? (nachfragen Vogelschutzverein oder Wildhütende)',
+					'Wie viel Strom wird aus erneuerbaren Quellen (z. B. Ökostromanbieter) entzogen?',
+					'Welchen Anteil emmittiertes CO2-Äquivaltent kompensiert die Veranstaltung? (z.B. über MyClimate)'
+				],
+				neg: [
+					'Werden durch die Veranstaltung oder Produkte, die bei der Veranstaltung verwendet werden natürliche Gewässer verunreinigt?',
+					'Wie stark werden Lebensräume von Tieren beeinträchtigt?',
+					'Werden durch die Veranstaltung in Brutplätze oder Verstecke von Tieren eingegriffen?',
+					'Wie stark werden Lebensräume von Tieren beeinträchtigt?',
+					'Wird durch die Veranstaltung natürlicher Boden (wie z.B Wiesen) langfristig geschädigt?',
+					'Überschreiten die Lärmemissionen den gesetzlichen Höchstwert?'
+				]
+			}
+		};
+
+		// Run on page loaded
+		(function(){
+			let docStyle = getComputedStyle(document.documentElement);
+			color0 = docStyle.getPropertyValue('--color0').split(',');
+			color50 = docStyle.getPropertyValue('--color50').split(',');
+			color100 = docStyle.getPropertyValue('--color100').split(',');
+			container = document.querySelector('.container');
+			totalSection = document.querySelector('#total-section');
+
+			// Creates all the criteria based on the list above
+			Object.keys(criteria).forEach(key => {
+				let section = document.createElement('section'),
+					h2 = document.createElement('h2'),
+					h2Text = document.createTextNode(criteria[key].name + ' '),
+					averageColor = document.createElement('span');
+				console.log(section);
+				section.setAttribute('id', key + '-section');
+				averageColor.className = 'average-color';
+				averageColor.setAttribute('id', key + '-color');
+				averageColor.innerHTML = textLegend + ' ' + criteria[key].pronoun + ' ' + criteria[key].name + ': ' + textsLegend[Object.keys(textsLegend).filter(key => key < 50).slice(-1)];
+				h2.appendChild(h2Text);
+				h2.appendChild(averageColor);
+				section.appendChild(h2);
+				if(criteria[key].hasOwnProperty('pos'))
+					section.appendChild(createCriteriaList(key, criteria[key].pos, true));
+				if(criteria[key].hasOwnProperty('neg'))
+					section.appendChild(createCriteriaList(key, criteria[key].neg, false));
+				container.insertBefore(section, totalSection);
+			});
+
+			sliders.forEach(sld => sld.addEventListener('input', (e) => {
+				getAverages();
+				sld.style.setProperty('--thiscolor', getColorValue(sld.value).join(','))
+			}));
+
+			document.querySelector('#total-color').appendChild(document.createTextNode(textLegend + ' ' + textTotal + ': ' + textsLegend[Object.keys(textsLegend).filter(key => key < 50).slice(-1)]));
+		})();
+
+		// Creates a criteria list including a title
+		function createCriteriaList(category, content, positive) {
+			let section = document.createElement('section'), h3 = document.createElement('h3'), h3Text = document.createTextNode(positive ? textPositive : textNegative), criteriaList = document.createElement('ul');
+			section.setAttribute('id', category + '-' + (positive ? 'pos' : 'neg'));
+			h3.appendChild(h3Text);
+			criteriaList.className = 'criteria-list';
+			for(let i = 0; i < content.length; i++){
+				criteriaList.appendChild(createCriterion(category, content[i], positive, i.toString()));
+			}
+			section.appendChild(h3);
+			section.appendChild(criteriaList);
+			return section;
+		}
+
+		// Creates a single criterion element
+		function createCriterion(category, text, positive, index) {
+			let criterion = document.createElement('li'), paragraph = document.createElement('p'), textNode = document.createTextNode(text), slider = document.createElement('input'), lblLow = document.createElement('span'), txtLow = document.createTextNode(textLow), lblHigh = document.createElement('span'), txtHigh = document.createTextNode(textHigh);
+			criterion.className = 'criterion';
+			paragraph.appendChild(textNode);
+			lblLow.className = 'slider-label slider-label-left';
+			lblHigh.className = 'slider-label slider-label-right';
+			lblLow.appendChild(txtLow);
+			lblHigh.appendChild(txtHigh);
+			slider.className = 'slider' + (positive ? '' : ' slider-inverse');
+			slider.setAttribute('type', 'range');
+			slider.setAttribute('min', minVal);
+			slider.setAttribute('max', maxVal);
+			slider.setAttribute('value', halfrange);
+			slider.setAttribute('id', category + '-' + (positive ? 'pos' : 'neg') + index);
+			criterion.appendChild(paragraph);
+			criterion.appendChild(slider);
+			criterion.appendChild(lblLow);
+			criterion.appendChild(lblHigh);
+			sliders.push(slider);
+			return criterion;
+		}
+
+		// Calculates average values
+		function getAverages() {
+			let sums = {}, counts = {}, averages = {}, totalSum = 0, totalColor = document.querySelector('#total-color');
+			sliders.forEach(s => {
+				let category = s.getAttribute('id').split('-')[0];
+				sums[category] = (sums.hasOwnProperty(category) ? sums[category] : 0) + parseInt(s.value);
+				counts[category] = (counts.hasOwnProperty(category) ? counts[category] : 0) + 1;
+			});
+			Object.keys(sums).forEach(key => {
+				averages[key] = sums[key] / counts[key];
+				let keyColor = document.querySelector('#' + key + '-color');
+				keyColor.style.backgroundColor = 'rgb(' + getColorValue(averages[key]) + ')';
+
+				let textLegendForKeyColor = textsLegend[Object.keys(textsLegend).filter(key2 => key2 < (averages[key]/maxVal)*100).slice(-1)];
+				while(keyColor.childNodes.length > 0)
+					keyColor.removeChild(keyColor.childNodes[0]);
+				keyColor.appendChild(document.createTextNode(textLegend + ' ' + criteria[key].pronoun + ' ' + criteria[key].name + ': ' + textLegendForKeyColor));
+				totalSum += averages[key];
+			});
+			let totalAverage = totalSum / Object.keys(averages).length;
+			totalColor.style.backgroundColor = 'rgb(' + getColorValue(totalAverage) + ')';
+			totalColor.removeChild(totalColor.childNodes[0]);
+			let textLegendForValue = textsLegend[Object.keys(textsLegend).filter(key => key < (totalAverage/maxVal)*100).slice(-1)];
+			totalColor.appendChild(document.createTextNode(textLegend + ' ' + textTotal + ': ' + textLegendForValue));
+			return averages;
+		}
+
+		// Calculates color based on value
+		function getColorValue(value) {
+			if(value < halfrange) {
+				return pickHex(color0, color50, 1-value/halfrange);
+			} else if(value > (maxVal+minVal)/2) {
+				return pickHex(color50, color100, 1-(value-halfrange)/halfrange);
+			} else {
+				return color50;
+			}
+		}
+
+		// Calculates color based on percentage, by passatgt
+		function pickHex(color1, color2, weight) {
+			var p = weight;
+			var w = p * 2 - 1;
+			var w1 = (w/1+1) / 2;
+			var w2 = 1 - w1;
+			var rgb = [Math.round(color1[0] * w1 + color2[0] * w2),
+				Math.round(color1[1] * w1 + color2[1] * w2),
+				Math.round(color1[2] * w1 + color2[2] * w2)];
+			return rgb;
+		}
+	</script>
+</body>
+</html>
